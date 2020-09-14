@@ -1,7 +1,7 @@
 FROM centos:latest
 
-RUN yum update
-RUN yum install apache
+RUN yum update -y
+RUN yum install -y apache
 
 ENV APACHE_RUN_USER apache
 ENV APACHE_RUN_GROUP apache
