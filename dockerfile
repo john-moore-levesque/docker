@@ -11,6 +11,6 @@ RUN pip install geckodriver_autoinstaller
 RUN pip install python_dotenv
 
 # Copy stuff
-RUN cp -r features/ features/
+COPY . .
 
 RUN behave -i features/TESTFILE.feature -o TESTFILE.report
