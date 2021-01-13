@@ -10,4 +10,7 @@ pip install selenium
 pip install geckodriver_autoinstaller
 pip install python_dotenv
 
-behave -i features/TESTFILE.feature 
+// Copy stuff
+cp -r features/ .
+
+behave -i features/TESTFILE.feature -o TESTFILE.report
