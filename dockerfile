@@ -1,15 +1,13 @@
-FROM centos:latest
+FROM python:3.9-buster
 
-RUN yum update -y
-RUN yum install -y httpd
-RUN yum install -y python38
-RUN yum install -y python38-mod_wsgi
-RUN yum install -y git
+// Install firefox
+apt-get update
+apt-get install firefox
 
-ENV APACHE_RUN_USER apache
-ENV APACHE_RUN_GROUP apache
-ENV APACHE_LOG_DIR /var/log/apache
+// Install
+pip install behave
+pip install selenium
+pip install geckodriver_autoinstaller
+pip install python_dotenv
 
-EXPOSE 80
-
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+behave -i features/TESTFILE.feature 
