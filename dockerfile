@@ -1,5 +1,10 @@
 FROM python:3.9-buster
 
+# Test File
+ARG TESTFILE
+ENV BEHAVE_TEST = ${TESTFILE}
+
+
 # Install firefox
 RUN apt-get update
 RUN apt-get install firefox-esr -y
@@ -13,4 +18,7 @@ RUN pip install python_dotenv
 # Copy stuff
 COPY . .
 
-RUN behave -i features/TESTFILE.feature -o TESTFILE.report
+RUN ls -l features/
+RUN echo ${BEHAVE_TEST}
+
+RUN cd features && behave -i $BEHAVE_TEST.feature 
