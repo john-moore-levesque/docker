@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: ./Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    volumes:
+      - /tmp/docker-volumes/nginx/:/var/www/html/
